@@ -433,7 +433,7 @@ So far json.erb is done. I don't remove any item from the json. But you might as
 
 Let's go back to Vagrantfile.
 
-The following run the setup process using node information set by the above `json.erb`.
+The following runs the setup process using node information set by the above `json.erb`.
 
 {% highlight ruby %}
 config.vm.provision "shell", inline: "opsworks-agent-cli run_command"
