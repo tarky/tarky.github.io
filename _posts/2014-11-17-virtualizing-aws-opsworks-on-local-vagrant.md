@@ -17,13 +17,13 @@ So we have to launch instances every time we test recipes and then we are charge
 ##Procedure
 ---
 
-###Step 1 Making Vagrant box file with OpsWorks Agent installed
+###Step 1. Making Vagrant box file with OpsWorks Agent installed
 
 [https://github.com/wwestenbrink/vagrant-opsworks](https://github.com/wwestenbrink/vagrant-opsworks)
 
 Using this tool, make a box file. Make sure things in dependencies list are installed in your machine and proceed according to usage.
 
-###Step2 Make an environment which you want virtulize on  OpsWorks as usual. Get node information when setup
+###Step 2. Make an environment which you want virtulize on  OpsWorks as usual. Get node information when setup
 
 Step 1 will take several tens of minutes. During it, make an environment on OpsWorks as usual. And ssh login with terminal, and get json of node information when setup with following command.
 
@@ -33,7 +33,7 @@ sudo opsworks-agent-cli get_json setup
 
 OpsWorks saves a json file of node information used by chef every time OpsWorks manipulate ec2 instances. There are several kinds of OpsWorks manipulation such as setup, deploy, configure and so on. The command above is display node information of the most recent setup manipulation. With the json and opsworks-agent-cli, we can virtualize the process run by OpsWorks on instances.
 
-###Step 3 Make a Vagrantfile and cookbooks for local setup
+###Step 3. Make a Vagrantfile and cookbooks for local setup
 
 Those are put in rails project. Note that the cookbooks is different from custom cookbooks used by OpsWorks as usual. The custom cookbooks is managed in the other repo, as the official document say.
 
@@ -467,7 +467,7 @@ config.vm.provision "shell", inline: "cd /srv/www/#{app_name}/current; bundle in
 {% endhighlight %}
 
 
-### Step 4 Make database.yml
+### Step 4. Make database.yml
 
 Make the file effective on development environment.
 
@@ -484,7 +484,7 @@ development:
   reconnect: false
 ~~~
 
-### Step 5 Vgrant up
+### Step 5. Vgrant up
 
 The last to do to make the same environment as AWS OpsWorks on local Vagrant is only `vagrant up`. 
 
