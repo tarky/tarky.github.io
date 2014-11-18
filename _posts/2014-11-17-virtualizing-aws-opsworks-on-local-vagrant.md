@@ -2,7 +2,6 @@
 layout: post
 title:  "Virtualizing AWS OpsWorks on Local Vagrant"
 date:   2014-11-17 17:37:35
-categories: AWS OpsWorks Vagrant 
 ---
 ##Why to Do It
 ---
