@@ -404,7 +404,11 @@ This let us do without `asset:precompile`.
 ]
 ~~~
 
-Here specify the setup recipes which you see on Layer screen of OpsWorks console. Of course include custome cookbooks. In my case, I include the setup recipes which belongs to  Rails layer and PostgreSQL Layer. And you might as well remove the recipes you don't need in the local environment. For example, I remove MySQL client, ebs and so on.
+Here specify the setup recipes which you see on Layer screen of OpsWorks console. Of course include custome cookbooks.
+
+![OpsWorks console screenshot]({{ site.url }}/images/2014-11-16-21-54-09.png)
+
+In my case, I include the setup recipes which belongs to  Rails layer and PostgreSQL Layer. And you might as well remove the recipes you don't need in the local environment. For example, I remove MySQL client, ebs and so on.
 
 * Add the following lines
 
@@ -503,6 +507,6 @@ If possible, depending on your system's structure, the process can't go througn.
 
 And if you know smarter way, please tell me.
 
-### reference
+### Reference
 * [wwestenbrink/vagrant-opsworks](https://github.com/wwestenbrink/vagrant-opsworks)
 * [Virtualizing AWS OpsWorks with Vagrant](http://pixelcog.com/blog/2014/virtualizing-aws-opsworks-with-vagrant/)
