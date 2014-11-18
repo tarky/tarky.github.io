@@ -5,6 +5,8 @@ date:   2014-11-17 17:37:35
 categories: AWS OpsWorks Vagrant 
 ---
 ##Why to Do It
+---
+
 AWS OpsWorks is a powerful cloud application management tool.
 
 But the only weak point is that OpsWorks enable us to build environments only on AWS. So we can't test chef recipes on local environment. Also one of the chef's strong point that it can enable us to build environment everywhere dissapears. The reason why we can build environment only on AWS is that OpsWokrs agent is preinstalled to each ec2 instance and it cooperates with OpsWorks builtin recipes to configure various settings when setup.
@@ -12,7 +14,8 @@ But the only weak point is that OpsWorks enable us to build environments only on
 So we have to launch instances every time we test recipes and then we are charged. I hate being charged with such a subtle operation and it is ideal to develop in the same environment as the production. So I managed to virtualize OpsWorks on Vagrant. I did it with Rails project, but it can be applied to other kind of project.
 
 
-##procedure
+##Procedure
+---
 
 ###Step 1 Making Vagrant box file with OpsWorks Agent installed
 
@@ -493,7 +496,7 @@ It took me 20 minutes to complete.
 And Note that you had better run this command at stable network situation. The proccess downloads various things. If the network is broken during the process, errors might happen.
 
 ## Conclusion
-
+---
 You got it! You got the same environment as OpsWorks on Vagrant! You can test recipes easily. Above all, it decreases the situations such as that the code works in development doesn't work in procuction.
 
 If possible, depending on your system's structure, the process can't go througn. But refferring to my procedure's essences, try it in the various way. 
