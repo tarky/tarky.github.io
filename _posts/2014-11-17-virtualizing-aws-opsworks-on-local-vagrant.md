@@ -8,7 +8,7 @@ date:   2014-11-17 17:37:35
 
 AWS OpsWorks is a powerful cloud application management tool.
 
-But the only weak point is that OpsWorks enable us to build environments only on AWS. So we can't test chef recipes on local environment. Also one of the chef's strong point that it can enable us to build environment everywhere dissapears. The reason why we can build environment only on AWS is that OpsWokrs agent is preinstalled to each ec2 instance and it cooperates with OpsWorks builtin recipes to configure various settings when setup.
+But the only weak point is that OpsWorks enable us to build environments only on AWS. So we can't test chef recipes on local environment. Also one of the chef's strong point that it can enable us to build environment everywhere  disappears. The reason why we can build environment only on AWS is that OpsWokrs agent is preinstalled to each ec2 instance and it cooperates with OpsWorks builtin recipes to configure various settings when setup.
 
 So we have to launch instances every time we test recipes and then we are charged. I hate being charged with such a subtle operation and it is ideal to develop in the same environment as the production. So I managed to virtualize OpsWorks on Vagrant. I did it with Rails project, but it can be applied to other kind of project.
 
@@ -30,13 +30,14 @@ Step 1 will take several tens of minutes. During it, make an environment on OpsW
 sudo opsworks-agent-cli get_json setup
 ```
 
-OpsWorks saves a json file of node information used by chef every time OpsWorks manipulate ec2 instances. There are several kinds of OpsWorks manipulation such as setup, deploy, configure and so on. The command above is display node information of the most recent setup manipulation. With the json and opsworks-agent-cli, we can virtualize the process run by OpsWorks on instances.
+OpsWorks saves a json file of node information used by chef every time OpsWorks manipulate ec2 instances. There are several kinds of OpsWorks manipulation such as setup, deploy, configure and so on. The command above displays node information of the most recent setup manipulation. With the json and opsworks-agent-cli, we can virtualize the process run by OpsWorks on instances.
 
 ###Step 3. Make a Vagrantfile and cookbooks for local setup
 
 Those are put in rails project. Note that the cookbooks is different from custom cookbooks used by OpsWorks as usual. The custom cookbooks is managed in the other repo, as the official document say.
 
 ~~~
+.
 ├── Gemfile
 ├── Gemfile.lock
 ├── README.rdoc
@@ -47,15 +48,15 @@ Those are put in rails project. Note that the cookbooks is different from custom
 ├── config
 ├── config.ru
 ├── cookbooks
- |        └── mimic_opsworks
- |                  ├── attributes
- |                  │        └── default.rb
- |                  ├── recipes
- |                  │        ├── default.rb
- |                  │        └── link_local.rb
- |                  └── templates
- |                             └── default
- |                                      └── json.erb
+|   └── mimic_opsworks
+|       ├── attributes
+|       │   └── default.rb
+|       ├── recipes
+|       │   ├── default.rb
+|       │   └── link_local.rb
+|       └── templates
+|           └── default
+|               └── json.erb
 ├── db
 ├── lib
 ├── log
@@ -500,9 +501,9 @@ And Note that you had better run this command at stable network situation. The p
 
 ## Conclusion
 ---
-You got it! You got the same environment as OpsWorks on Vagrant! You can test recipes easily. Above all, it decreases the situations such as that the code works in development doesn't work in procuction.
+You got it! You got the same environment as OpsWorks on Vagrant! You can test recipes easily. Above all, it decreases the situations such as that the code works in development doesn't work in production.
 
-If possible, depending on your system's structure, the process can't go througn. But refferring to my procedure's essences, try it in the various way. 
+If possible, depending on your system's structure, the process can't go through. But referring to my procedure's essences, try it in the various way. 
 
 And if you know smarter way, please tell me.
 
